@@ -768,18 +768,6 @@ local items = {
 		slot = "armor"
 	},
 	{
-		-- green demon slippers
-		itemid = 37610,
-		type = "equip",
-		slot = "feet"
-	},
-	{
-		-- green demon slippers
-		itemid = 37610,
-		type = "deequip",
-		slot = "feet"
-	},
-	{
 		-- green demon helmet
 		itemid = 37609,
 		type = "equip",
@@ -1406,7 +1394,6 @@ local items = {
 		itemid = 35520,
 		type = "deequip",
 		slot = "feet",
-		level = 150
 	},
 	{
 		-- makeshift boots
@@ -1424,7 +1411,6 @@ local items = {
 		itemid = 35519,
 		type = "deequip",
 		slot = "feet",
-		level = 150
 	},
 	{
 		-- jungle bow
@@ -2227,18 +2213,6 @@ local items = {
 		itemid = 32100,
 		type = "deequip",
 		slot = "head"
-	},
-	{
-		-- traditional leather shoes
-		itemid = 32098,
-		type = "equip",
-		slot = "feet"
-	},
-	{
-		-- traditional leather shoes
-		itemid = 32098,
-		type = "deequip",
-		slot = "feet"
 	},
 	{
 		-- meat hammer
@@ -14989,13 +14963,15 @@ local items = {
 		-- pair of soft boots
 		itemid = 6529,
 		type = "equip",
-		slot = "feet"
+		slot = "feet",
+		level = 10
 	},
 	{
 		-- pair of soft boots
 		itemid = 6529,
 		type = "deequip",
-		slot = "feet"
+		slot = "feet",
+		level = 10
 	},
 	{
 		-- tortoise shield
@@ -15774,13 +15750,15 @@ local items = {
 		-- pair of soft boots
 		itemid = 3549,
 		type = "equip",
-		slot = "feet"
+		slot = "feet",
+		level = 10
 	},
 	{
 		-- pair of soft boots
 		itemid = 3549,
 		type = "deequip",
-		slot = "feet"
+		slot = "feet",
+		level = 10
 	},
 	{
 		-- scythe
