@@ -7247,7 +7247,7 @@
 		<attribute key="weight" value="1500"/>
 	</item>
 	<item id="3453" article="a" name="scythe">
-		<attribute key="weaponType" value="axe"/>
+		<attribute key="weaponType" value="club"/>
 		<attribute key="slotType" value="two-handed"/>
 		<attribute key="attack" value="8"/>
 		<attribute key="defense" value="3"/>
@@ -17629,7 +17629,7 @@
 	</item>
 	<item id="9020" name="worn firewalker boots">
 		<attribute key="description" value="They can be recharged with an enchanted ruby"/>
-		<attribute key="weight" value="800"/>
+		<attribute key="weight" value="950"/>
 	</item>
 	<item id="9021" article="a" name="dead gozzler">
 		<attribute key="duration" value="300"/>
@@ -18715,7 +18715,7 @@
 	</item>
 	<item id="9384" article="a" name="scythe of the reaper">
 		<attribute key="description" value="This scythe has harvested countless souls and still hungers for more"/>
-		<attribute key="weaponType" value="club"/>
+		<attribute key="weaponType" value="axe"/>
 		<attribute key="slotType" value="two-handed"/>
 		<attribute key="attack" value="16"/>
 		<attribute key="defense" value="6"/>
@@ -18730,7 +18730,7 @@
 	</item>
 	<item id="9386" article="a" name="farmer's avenger">
 		<attribute key="description" value="A weapon forged to fight oppression of the poor underdogs"/>
-		<attribute key="weaponType" value="sword"/>
+		<attribute key="weaponType" value="axe"/>
 		<attribute key="slotType" value="two-handed"/>
 		<attribute key="attack" value="17"/>
 		<attribute key="defense" value="7"/>
@@ -22895,7 +22895,7 @@
 		<attribute key="weight" value="4000"/>
 	</item>
 	<item id="12683" article="a" name="heavy trident">
-		<attribute key="weaponType" value="sword"/>
+		<attribute key="weaponType" value="axe"/>
 		<attribute key="slotType" value="two-handed"/>
 		<attribute key="attack" value="35"/>
 		<attribute key="defense" value="17"/>
@@ -30043,7 +30043,7 @@
 		<attribute key="absorbpercentpoison" value="2"/>
 		<attribute key="absorbpercentfire" value="-2"/>
 		<attribute key="armor" value="12"/>
-		<attribute key="weight" value="4800"/>
+		<attribute key="weight" value="5800"/>
 	</item>
 	<item id="19373" article="a" name="haunted mirror piece">
 		<attribute key="weaponType" value="shield"/>
@@ -39325,7 +39325,7 @@
 		<attribute key="attack" value="51"/>
 		<attribute key="defense" value="31"/>
 		<attribute key="weight" value="5000"/>
-		<attribute key="imbuementslot" value="3">
+		<attribute key="imbuementslot" value="2">
 			<attribute key="elemental damage" value="3"/>
 			<attribute key="life leech" value="3"/>
 			<attribute key="mana leech" value="3"/>
@@ -39337,7 +39337,7 @@
 		<attribute key="weaponType" value="axe"/>
 		<attribute key="slotType" value="two-handed"/>
 		<attribute key="attack" value="52"/>
-		<attribute key="defense" value="32"/>
+		<attribute key="defense" value="30"/>
 		<attribute key="weight" value="7000"/>
 		<attribute key="imbuementslot" value="3">
 			<attribute key="elemental damage" value="3"/>
@@ -39350,9 +39350,9 @@
 	<item id="27453" article="a" name="mace of destruction">
 		<attribute key="weaponType" value="club"/>
 		<attribute key="attack" value="50"/>
-		<attribute key="defense" value="30"/>
+		<attribute key="defense" value="32"/>
 		<attribute key="weight" value="5000"/>
-		<attribute key="imbuementslot" value="3">
+		<attribute key="imbuementslot" value="2">
 			<attribute key="elemental damage" value="3"/>
 			<attribute key="life leech" value="3"/>
 			<attribute key="mana leech" value="3"/>
@@ -39364,7 +39364,7 @@
 		<attribute key="weaponType" value="club"/>
 		<attribute key="slotType" value="two-handed"/>
 		<attribute key="attack" value="53"/>
-		<attribute key="defense" value="30"/>
+		<attribute key="defense" value="29"/>
 		<attribute key="weight" value="7000"/>
 		<attribute key="imbuementslot" value="3">
 			<attribute key="elemental damage" value="3"/>
@@ -42461,6 +42461,7 @@
 	</item>
 	<item id="29419" article="a" name="resizer">
 		<attribute key="weaponType" value="club"/>
+		<attribute key="slotType" value="two-handed"/>
 		<attribute key="elementice" value="46"/>
 		<attribute key="skillclub" value="2"/>
 		<attribute key="attack" value="11"/>
@@ -46992,7 +46993,7 @@
 	</item>
 	<item id="32705" article="a" name="pair of old bracers">
 		<attribute key="armor" value="1"/>
-		<attribute key="weight" value="20"/>
+		<attribute key="weight" value="200"/>
 	</item>
 	<item id="32706" article="a" name="unknow">
 		<attribute key="weight" value="4"/>
@@ -48818,7 +48819,7 @@
 		<attribute key="criticalhitchance" value="10"/>
 		<attribute key="skillaxe" value="5"/>
 		<attribute key="attack" value="10"/>
-		<attribute key="defense" value="35"/>
+		<attribute key="defense" value="34"/>
 		<attribute key="weight" value="7200"/>
 		<attribute key="imbuementslot" value="3">
 			<attribute key="life leech" value="3"/>
@@ -50363,7 +50364,7 @@
 		<attribute key="absorbpercentice" value="6"/>
 		<attribute key="magicpoints" value="1"/>
 		<attribute key="armor" value="2"/>
-		<attribute key="weight" value="1200"/>
+		<attribute key="weight" value="1450"/>
 		<attribute key="imbuementslot" value="1">
 			<attribute key="increase speed" value="3"/>
 		</attribute>
