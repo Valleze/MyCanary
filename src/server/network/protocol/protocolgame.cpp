@@ -427,6 +427,15 @@ void ProtocolGame::login(const std::string &name, uint32_t accountId, OperatingS
 		writeToOutputBuffer(opcodeMessage);
 	}
 
+	account::Account playerAccount;
+	if (playerAccount.LoadAccountDB(accountId) != account::ERROR_NO) {
+		disconnectClient("Your account could not be loaded.");
+		return;
+	}
+
+	// Update premium days
+	Game::updatePremium(playerAccount);
+
 	// dispatcher thread
 	Player* foundPlayer = g_game().getPlayerUniqueLogin(name);
 	if (!foundPlayer) {
@@ -3323,7 +3332,7 @@ void ProtocolGame::sendCyclopediaCharacterGeneralStats() {
 	for (uint8_t i = SKILL_FIRST; i < SKILL_CRITICAL_HIT_CHANCE; ++i) {
 		static const uint8_t HardcodedSkillIds[] = { 11, 9, 8, 10, 7, 6, 13 };
 		skills_t skill = static_cast<skills_t>(i);
-		if (oldProtocol && (skill == SKILL_LIFE_LEECH_CHANCE || skill == SKILL_MANA_LEECH_CHANCE)) {
+		if (!oldProtocol && (skill == SKILL_LIFE_LEECH_CHANCE || skill == SKILL_MANA_LEECH_CHANCE)) {
 			continue;
 		}
 		msg.addByte(HardcodedSkillIds[i]);
@@ -5579,12 +5588,15 @@ void ProtocolGame::sendPingBack() {
 }
 
 void ProtocolGame::sendDistanceShoot(const Position &from, const Position &to, uint16_t type) {
+	if (oldProtocol && type > 0xFF) {
+		return;
+	}
 	NetworkMessage msg;
 	if (oldProtocol) {
 		msg.addByte(0x85);
 		msg.addPosition(from);
 		msg.addPosition(to);
-		msg.addByte(std::max<uint8_t>(0xFF, type));
+		msg.addByte(static_cast<uint8_t>(type));
 	} else {
 		msg.addByte(0x83);
 		msg.addPosition(from);
@@ -5637,7 +5649,7 @@ void ProtocolGame::sendRestingStatus(uint8_t protection) {
 }
 
 void ProtocolGame::sendMagicEffect(const Position &pos, uint16_t type) {
-	if (!canSee(pos)) {
+	if (!canSee(pos) || (oldProtocol && type > 0xFF)) {
 		return;
 	}
 
@@ -5645,7 +5657,7 @@ void ProtocolGame::sendMagicEffect(const Position &pos, uint16_t type) {
 	if (oldProtocol) {
 		msg.addByte(0x83);
 		msg.addPosition(pos);
-		msg.addByte(std::max<uint8_t>(0xFF, type));
+		msg.addByte(static_cast<uint8_t>(type));
 	} else {
 		msg.addByte(0x83);
 		msg.addPosition(pos);
@@ -5657,11 +5669,14 @@ void ProtocolGame::sendMagicEffect(const Position &pos, uint16_t type) {
 }
 
 void ProtocolGame::removeMagicEffect(const Position &pos, uint16_t type) {
+	if (oldProtocol && type > 0xFF) {
+		return;
+	}
 	NetworkMessage msg;
 	msg.addByte(0x84);
 	msg.addPosition(pos);
 	if (oldProtocol) {
-		msg.addByte(std::max<uint8_t>(255, type));
+		msg.addByte(static_cast<uint8_t>(type));
 	} else {
 		msg.add<uint16_t>(type);
 	}
@@ -5917,6 +5932,10 @@ void ProtocolGame::sendFightModes() {
 }
 
 void ProtocolGame::sendAllowBugReport() {
+	if (oldProtocol) {
+		return;
+	}
+
 	NetworkMessage msg;
 	msg.addByte(0x1A);
 	if (player->getAccountType() >= account::ACCOUNT_TYPE_NORMAL) {
@@ -5992,9 +6011,7 @@ void ProtocolGame::sendAddCreature(const Creature* creature, const Position &pos
 	writeToOutputBuffer(msg);
 
 	// Allow bug report (Ctrl + Z)
-	if (!oldProtocol) {
-		sendAllowBugReport();
-	}
+	sendAllowBugReport();
 
 	sendTibiaTime(g_game().getLightHour());
 	sendPendingStateEntered();
