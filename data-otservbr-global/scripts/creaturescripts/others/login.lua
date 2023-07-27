@@ -22,15 +22,55 @@ local playerLogin = CreatureEvent("PlayerLogin")
 
 function playerLogin.onLogin(player)
 	local items = {
-		{3003, 1},
-		{3031, 3}
+		{3003, 1}, -- rope
+		{3457, 1}, -- shovel
+		{16277, 1}, -- adventurer's stone
+		{3725, 10} -- brown mushroom
 	}
 	if player:getLastLoginSaved() == 0 then
 		player:sendOutfitWindow()
 		local backpack = player:addItem(2854)
 		if backpack then
 			for i = 1, #items do
-				backpack:addItem(items[i][1], items[i][2])
+				backpack:addItem(items[i][1], items[i][2], items[i][3], items[i][4])
+			end
+			-- Sorcerer
+			if player:getVocation():getId() == 1 or player:getVocation():getId() == VOCATION_SORCERER then
+				backpack:addItem(3074, 1) -- wand of vortex
+				backpack:addItem(3059, 1) -- spellbook
+				backpack:addItem(7992, 1) -- mage's hat
+				backpack:addItem(7991, 1) -- magician's robe
+				backpack:addItem(3559, 1) -- leather legs
+				backpack:addItem(3552, 1) -- leather boots
+			end
+			-- Druid
+			if player:getVocation():getId() == 2 or player:getVocation():getId() == VOCATION_DRUID then
+				backpack:addItem(3066, 1) -- snakebite rod
+				backpack:addItem(3059, 1) -- spellbook
+				backpack:addItem(7992, 1) -- mage's hat
+				backpack:addItem(7991, 1) -- magician's robe
+				backpack:addItem(3559, 1) -- leather legs
+				backpack:addItem(3552, 1) -- leather boots
+			end
+			-- Paladin
+			if player:getVocation():getId() == 3 or player:getVocation():getId() == VOCATION_PALADIN then
+				backpack:addItem(3277, 1) -- spear
+				backpack:addItem(3425, 1) -- dwarven shield
+				backpack:addItem(3384, 1) -- dark helmet
+				backpack:addItem(3571, 1) -- ranger's cloak
+				backpack:addItem(8095, 1) -- ranger's legs
+				backpack:addItem(3552, 1) -- leather boots
+			end
+			-- Knight
+			if player:getVocation():getId() == 4 or player:getVocation():getId() == VOCATION_KNIGHT then
+				--backpack:addItem(7774, 1) -- jagged sword
+				--backpack:addItem(7773, 1) -- steel axe
+				--backpack:addItem(3327, 1) -- daramian mace
+				backpack:addItem(3425, 1) -- dwarven shield
+				backpack:addItem(3384, 1) -- dark helmet
+				backpack:addItem(3357, 1) -- plate armor
+				backpack:addItem(3557, 1) -- plate legs
+				backpack:addItem(3552, 1) -- leather boots
 			end
 		end
 		player:addItem(2920, 1, true, 1, CONST_SLOT_AMMO)
